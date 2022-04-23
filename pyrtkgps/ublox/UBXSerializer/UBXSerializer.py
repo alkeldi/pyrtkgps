@@ -1,7 +1,7 @@
 import yaml
 import jsonschema
 from pyubx2 import UBXMessage
-from schema import schema
+from pyrtkgps.ublox.UBXSerializer.schema import schema
 
 
 def validate(config):
@@ -59,7 +59,7 @@ def ubx_cfg_valdel(cfg_data, layer):
 
 
 def to_binary(config):
-    result = b""
+    result = b''
     for layer_name in config:
         layer = config[layer_name]
         for method_name in layer:

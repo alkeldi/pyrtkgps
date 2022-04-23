@@ -1,6 +1,6 @@
-from UBloxReaderDEMUX import UBloxReaderDEMUX
-from UBloxWriterMUX import UBloxWriterMUX
-from UBloxStream import UBloxStream
+from pyrtkgps.ublox.StreamMuxDemux.UBloxReaderDEMUX import UBloxReaderDEMUX
+from pyrtkgps.ublox.StreamMuxDemux.UBloxWriterMUX import UBloxWriterMUX
+from pyrtkgps.ublox.StreamMuxDemux.UBloxStream import UBloxStream
 
 
 class StreamMuxDemux:

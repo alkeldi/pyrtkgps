@@ -1,5 +1,7 @@
 __pycache__
 *.pyc
+dist
+pyrtkgps.egg-info
 venv
 *.log
 .DS_Store

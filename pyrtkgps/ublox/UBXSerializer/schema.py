@@ -20,9 +20,7 @@ VAL_GET = {
     }
 }
 
-
 VAL_DEL = VAL_GET
-
 
 schema = {
     "type": "object",

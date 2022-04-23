@@ -1,6 +1,6 @@
 from threading import Thread
-from UBloxQueue import UBloxQueue
-from StreamMuxDemuxError import StreamMuxDemuxError
+from pyrtkgps.ublox.StreamMuxDemux.UBloxQueue import UBloxQueue
+from pyrtkgps.ublox.StreamMuxDemux.StreamMuxDemuxError import StreamMuxDemuxError
 
 
 class UBloxReaderDEMUX:
@@ -47,7 +47,7 @@ class UBloxReaderDEMUX:
                 frame.append(ser.readline())
 
                 # entire message
-                msg = b"".join(frame)
+                msg = b''.join(frame)
 
                 # add msg to NMEA queue
                 for byte in msg:
@@ -74,7 +74,7 @@ class UBloxReaderDEMUX:
                     frame.append(ser.read())                # CK_B
 
                     # entire message
-                    msg = b"".join(frame)
+                    msg = b''.join(frame)
 
                     # add msg to UBX queue
                     for byte in msg:
@@ -99,7 +99,7 @@ class UBloxReaderDEMUX:
                 frame.append(ser.read(3))                   # parity
 
                 # entire message
-                msg = b"".join(frame)
+                msg = b''.join(frame)
 
                 # add msg to UBX queue
                 for byte in msg:
@@ -112,7 +112,7 @@ class UBloxReaderDEMUX:
 
             # error
             if self._onError:
-                data = b"".join(frame)
+                data = b''.join(frame)
                 self._onError(data)
 
     def readNMEA(self):

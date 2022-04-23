@@ -1,3 +1,3 @@
-from .StreamMuxDemux.StreamMuxDemux import StreamMuxDemux
-from .StreamMuxDemux.StreamMuxDemuxError import StreamMuxDemuxError
-from .UBXSerializer.UBXSerializer import UBXSerializer
+from pyrtkgps.ublox.StreamMuxDemux.StreamMuxDemux import StreamMuxDemux
+from pyrtkgps.ublox.StreamMuxDemux.StreamMuxDemuxError import StreamMuxDemuxError
+from pyrtkgps.ublox.UBXSerializer.UBXSerializer import UBXSerializer

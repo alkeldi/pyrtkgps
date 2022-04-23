@@ -3,9 +3,9 @@ disable=
     invalid-name,
     redefined-outer-name,
     missing-module-docstring,
-    too-few-public-methods,
     missing-function-docstring,
     missing-class-docstring,
+    too-few-public-methods,
     fixme,
     broad-except,
     duplicate-code

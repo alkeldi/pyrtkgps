@@ -5,7 +5,7 @@ class UBloxStream():
         self._stream_mux_demux = stream_mux_demux
 
     def read(self, n=1):
-        result = b""
+        result = b''
         for _ in range(n):
             result += self._read()
         return result

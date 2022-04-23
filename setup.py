@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from pyrtkgps import __version__ as VERSION
 
 LONG_DESCRIPTION = """\
@@ -16,7 +16,7 @@ setup(
     author="alkeldi",
     author_email="ali.alkeldi@gmail.com",
     url="https://github.com/alkeldi/pyrtkgps",
-    packages=["pyrtkgps"],
+    packages=find_packages(),
 
     install_requires=[
         "pyubx2>=1.2.7",
