@@ -1,0 +1,2 @@
+class StreamMuxDemuxError(Exception):
+    pass
