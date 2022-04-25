@@ -19,7 +19,7 @@ with GPS modules manufactured by `u-blox`.
     <td> master </td>
     <td>
       <a href="https://github.com/alkeldi/pyrtkgps/tree/master">
-        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/makefile-deployment.yml/badge.svg?branch=master" alt="Pylint: master"/>
+        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/deployment.yml/badge.svg?branch=master" alt="Deployment: master"/>
       </a>
     </td>
     <td>
@@ -38,7 +38,7 @@ with GPS modules manufactured by `u-blox`.
     <td> test </td>
     <td>
       <a href="https://github.com/alkeldi/pyrtkgps/tree/test">
-        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/makefile-testing.yml/badge.svg?branch=test" alt="Pylint: test"/>
+        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/testing.yml/badge.svg?branch=test" alt="Testing: test"/>
       </a>
     </td>
     <td style='text-align: center;'>

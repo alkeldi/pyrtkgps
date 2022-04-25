@@ -19,7 +19,7 @@ deploy-test:
 	git checkout test
 	twine upload  --verbose --repository testpypi dist/* -u "__token__" -p "${TEST_PYPI_API_SECRET}"
 
-deploy-master:
+deploy:
 	git checkout master
 	twine upload --verbose dist/* -u "__token__" -p "${PYPI_API_SECRET}"
 

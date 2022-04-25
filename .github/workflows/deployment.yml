@@ -48,4 +48,4 @@ jobs:
       - name: Deploy
         env:
           PYPI_API_SECRET: ${{ secrets.PYPI_API_SECRET }}
-        run: make deploy-master
+        run: make deploy
