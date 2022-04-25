@@ -1,10 +1,8 @@
-name: Makefile CI (Testing)
+name: Makefile CI
 
 on:
   push:
-    branches: [test]
-  pull_request:
-    branches: [test]
+    branches: [master]
 
 jobs:
   build:
@@ -33,7 +31,7 @@ jobs:
           path: ./dist
 
   deploy:
-    name: Deploy to TestPyPI
+    name: Deploy to PyPI
     runs-on: ubuntu-latest
     needs: [build]
     steps:
@@ -49,5 +47,5 @@ jobs:
         uses: actions/download-artifact@v3
       - name: Deploy
         env:
-          TEST_PYPI_API_SECRET: ${{ secrets.TEST_PYPI_API_SECRET }}
-        run: make deploy-test
+          PYPI_API_SECRET: ${{ secrets.PYPI_API_SECRET }}
+        run: make deploy-master
