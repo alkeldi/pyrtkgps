@@ -19,7 +19,7 @@ for GPS modules with Real-Time Kinematic (RTK) positioning. Currently, GPS modul
     <td> master </td>
     <td>
       <a href="https://github.com/alkeldi/pyrtkgps/tree/master">
-        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/makefile.yml/badge.svg?branch=master" alt="Pylint: master"/>
+        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/makefile-deployment.yml/badge.svg?branch=master" alt="Pylint: master"/>
       </a>
     </td>
     <td>
@@ -38,7 +38,7 @@ for GPS modules with Real-Time Kinematic (RTK) positioning. Currently, GPS modul
     <td> test </td>
     <td>
       <a href="https://github.com/alkeldi/pyrtkgps/tree/test">
-        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/makefile.yml/badge.svg?branch=test" alt="Pylint: test"/>
+        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/makefile-testing.yml/badge.svg?branch=test" alt="Pylint: test"/>
       </a>
     </td>
     <td style='text-align: center;'>
