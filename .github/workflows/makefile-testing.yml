@@ -3,6 +3,8 @@ name: Makefile CI (Testing)
 on:
   push:
     branches: [test]
+  pull_request:
+    branches: [test]
 
 jobs:
   build:
