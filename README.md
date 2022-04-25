@@ -1,7 +1,7 @@
 # pyrtkgps
 
-`pyrtkgps` is a library for managing and configuring GPS and other GNSS chips. The main focus of this library is to provide support
-for GPS modules with Real-Time Kinematic (RTK) positioning. Currently, GPS modules manufactured by `u-blox` are supported.
+`pyrtkgps` is a library for managing and configuring GPS and GNSS chips. Currently, the main focus of this library is to work
+with GPS modules manufactured by `u-blox`.
 
 **Credit:** The base code for `pyrtkgps` was initially written for a Real-Time Kinematic GPS [experiment](https://github.com/janakj/gps-rtk)  at Columbia University.
 
