@@ -1,0 +1,73 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master, test ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3", "3.7", "3.8", "3.9", "3.10"]
+    name: Build (Python ${{ matrix.python-version }})
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Cache for Python Dependencies
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+      - name: Install Requirements 
+        run: make requirements
+      - name: Lint
+        run: make lint
+      - name: Build
+        run: make build
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ./dist
+
+  deploy-test:
+    name: test --> deploy
+    if: github.ref == 'refs/heads/test'
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Cache for Python Dependencies
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.7'
+          cache: 'pip'
+      - name: Install Requirements 
+        run: make requirements
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+      - name: Deploy to TestPyPI
+        env:
+          TEST_PYPI_API_SECRET: ${{ secrets.TEST_PYPI_API_SECRET }}
+        run: make deploy-test
+
+  deploy-master:
+    name: master --> deploy
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Cache for Python Dependencies
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.7'
+          cache: 'pip'
+      - name: Install Requirements 
+        run: make requirements
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+      - name: Deploy to PyPI
+        env:
+          TEST_PYPI_API_SECRET: ${{ secrets.PYPI_API_SECRET }}
+        run: make deploy-master
