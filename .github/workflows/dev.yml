@@ -1,16 +1,15 @@
-name: Build (dev)
+name: dev-build-deploy
 
 on:
   pull_request:
     branches: [ dev ]
 
 jobs:
-  build:
+  dev-build:
     runs-on: ubuntu-latest
-    name: dev-build
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python & Use Cache for Dependencies
+      - name: Set up Python & Cache Dependencies
         uses: actions/setup-python@v3
         with:
           python-version: "3"
@@ -21,3 +20,11 @@ jobs:
         run: make lint
       - name: Build
         run: make build
+
+  dev-deploy:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to PyPI
+        run: ls
