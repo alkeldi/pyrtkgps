@@ -7,48 +7,11 @@ with GPS modules manufactured by `u-blox`.
 
 
 ## Current Status
-<table>
-  <tr>
-    <th> Branch </th>
-    <th> Build </th>
-    <th> Package </th>
-    <th> License </th>
-  </tr>
-  
-  <tr>
-    <td> master </td>
-    <td>
-      <a href="https://github.com/alkeldi/pyrtkgps/tree/master">
-        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/deployment.yml/badge.svg?branch=master" alt="Deployment: master"/>
-      </a>
-    </td>
-    <td>
-      <a href="https://pypi.org/project/pyrtkgps/">
-        <img src="https://img.shields.io/pypi/v/pyrtkgps" alt="pypi: version"/>
-      </a>    
-    </td>
-    <td rowspan="100%">
-      <a href="https://github.com/alkeldi/pyrtkgps/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"/>
-      </a>
-    </td>
-  </tr>
-  
-  <tr>
-    <td> test </td>
-    <td>
-      <a href="https://github.com/alkeldi/pyrtkgps/tree/test">
-        <img src="https://github.com/alkeldi/pyrtkgps/actions/workflows/testing.yml/badge.svg?branch=test" alt="Testing: test"/>
-      </a>
-    </td>
-    <td style='text-align: center;'>
-      <a href="https://test.pypi.org/project/pyrtkgps/">
-        <img src="https://img.shields.io/badge/pypi-(test)-red" alt="pypi: version"/>
-      </a>  
-    </td>
-  </tr>
-</table>
-
+[![release badge](https://github.com/alkeldi/pyrtkgps/actions/workflows/release.yml/badge.svg?branch=release)](https://github.com/alkeldi/pyrtkgps/tree/release)
+[![stage badge](https://github.com/alkeldi/pyrtkgps/actions/workflows/stage.yml/badge.svg?branch=stage)](https://github.com/alkeldi/pyrtkgps/tree/stage)
+[![develop badge](https://github.com/alkeldi/pyrtkgps/actions/workflows/develop.yml/badge.svg?branch=develop)](https://github.com/alkeldi/pyrtkgps/tree/develop)
+[![license badge](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![pypi badge](https://img.shields.io/pypi/v/pyrtkgps)](https://pypi.org/project/pyrtkgps/)
 
 ## Install
 ``` bash
