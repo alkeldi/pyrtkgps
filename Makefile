@@ -30,3 +30,4 @@ clean:
 	rm -rf dist pyrtkgps.egg-info
 	find . -type d -name "pyrtkgps.egg-info" | xargs rm -rf
 	find . -type d -name "__pycache__" | xargs rm -rf
+
