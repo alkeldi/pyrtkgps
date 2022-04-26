@@ -1,12 +1,14 @@
-name: dev-build-deploy
+name: Development
 
 on:
   pull_request:
-    branches: [ dev ]
+    branches: [ develop ]
 
 jobs:
-  dev-build:
+  build:
+    name: Development (Build)
     runs-on: ubuntu-latest
+    environment: development
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python & Cache Dependencies
@@ -19,18 +21,4 @@ jobs:
       - name: Lint
         run: make lint
       - name: Build
-        run: make build
-
-  dev-deploy:
-    runs-on: ubuntu-latest
-    needs: [dev-build]
-    environment: development
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python & Cache Dependencies
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3'
-          cache: 'pip'
-      - name: build-again
         run: make build
