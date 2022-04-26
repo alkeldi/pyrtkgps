@@ -18,7 +18,7 @@ build:
 stage:
 	if [[ "$(git branch --show-current)" != "stage" ]]; then
 		echo "Abort: invalid git branch"
-  		exit 1;
+		exit 1;
 	fi
 
 	git branch --show-current 
@@ -28,7 +28,7 @@ stage:
 deploy:
 	if [[ "$(git branch --show-current)" != "deploy" ]]; then
 		echo "Abort: invalid git branch"
-  		exit 1;
+		exit 1;
 	fi
 
 	git checkout master
