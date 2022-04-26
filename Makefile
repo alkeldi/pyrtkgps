@@ -16,10 +16,21 @@ build:
 	python -m build
 
 stage:
+	if [[ "$(git branch --show-current)" != "stage" ]]; then
+		echo "Abort: invalid git branch"
+		exit 1;
+	fi
+
+	git branch --show-current 
 	git checkout test
 	twine upload  --verbose --repository testpypi dist/* -u "__token__" -p "${TEST_PYPI_API_SECRET}"
 
 deploy:
+	if [[ "$(git branch --show-current)" != "deploy" ]]; then
+		echo "Abort: invalid git branch"
+		exit 1;
+	fi
+
 	git checkout master
 	twine upload --verbose dist/* -u "__token__" -p "${PYPI_API_SECRET}"
 
