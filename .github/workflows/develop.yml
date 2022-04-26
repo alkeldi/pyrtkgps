@@ -1,0 +1,23 @@
+name: Development
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build:
+    name: Development (Build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python & Cache Dependencies
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3"
+          cache: 'pip'
+      - name: Install Requirements 
+        run: make requirements
+      - name: Lint
+        run: make lint
+      - name: Build
+        run: make build
