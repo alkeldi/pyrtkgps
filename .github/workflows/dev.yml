@@ -1,0 +1,23 @@
+name: Build (dev)
+
+on:
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build (dev)
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python & Use Cache for Dependencies
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3"
+          cache: 'pip'
+      - name: Install Requirements 
+        run: make requirements
+      - name: Lint
+        run: make lint
+      - name: Build
+        run: make build
