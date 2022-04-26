@@ -1,3 +1,5 @@
+GIT_BRANCH=$(shell git branch --show-current)
+
 requirements:
 	pip install -r requirements.txt
 
@@ -15,12 +17,12 @@ build:
 	pip install --upgrade build
 	python -m build
 
-deploy-test:
-	git checkout test
+stage:
+	@if [[ "${GIT_BRANCH}" != "stage" ]]; then echo "Abort: invalid git branch"; exit 1; fi
 	twine upload  --verbose --repository testpypi dist/* -u "__token__" -p "${TEST_PYPI_API_SECRET}"
 
 deploy:
-	git checkout master
+	@if [[ "${GIT_BRANCH}" != "deploy" ]]; then echo "Abort: invalid git branch"; exit 1; fi
 	twine upload --verbose dist/* -u "__token__" -p "${PYPI_API_SECRET}"
 
 .PHONY: clean
