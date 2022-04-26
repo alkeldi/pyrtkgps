@@ -15,7 +15,7 @@ build:
 	pip install --upgrade build
 	python -m build
 
-deploy-test:
+stage:
 	git checkout test
 	twine upload  --verbose --repository testpypi dist/* -u "__token__" -p "${TEST_PYPI_API_SECRET}"
 
