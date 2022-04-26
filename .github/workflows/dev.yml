@@ -23,8 +23,14 @@ jobs:
 
   dev-deploy:
     runs-on: ubuntu-latest
+    needs: [dev-build]
     environment: development
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy to PyPI
-        run: ls
+      - name: Set up Python & Cache Dependencies
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3'
+          cache: 'pip'
+      - name: build-again
+        run: make build
