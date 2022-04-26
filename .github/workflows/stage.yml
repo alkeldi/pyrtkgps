@@ -8,12 +8,11 @@ on:
 
 jobs:
   build:
-    name: Staging (Build)
+    name: Staging (Build using Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3", "3.7", "3.8", "3.9", "3.10"]
-    name: Build (Python ${{ matrix.python-version }})
     steps:
       - uses: actions/checkout@v3
       - name: Set up python & use dependencies cache
