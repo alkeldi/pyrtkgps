@@ -3,6 +3,8 @@ name: Staging
 on:
   pull_request:
     branches: [ stage ]
+  push:
+    branches: [ stage ]
 
 jobs:
   build:
@@ -32,6 +34,7 @@ jobs:
           path: ./dist
 
   stage:
+    if: github.event_name == 'push'
     name: Staging (Deploy to TestPyPI)
     environment: staging
     runs-on: ubuntu-latest
