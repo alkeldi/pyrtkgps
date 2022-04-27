@@ -4,3 +4,4 @@ pyubx2>=1.2.7
 pylint>=2.13.7
 autopep8>=1.6.0
 twine>=4.0.0
+packaging>=21.3
