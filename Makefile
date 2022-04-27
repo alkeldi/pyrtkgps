@@ -17,6 +17,18 @@ build:
 	pip install --upgrade build
 	python -m build
 
+check-version:
+	curl '${PYPI_URL_JSON}' -o  ./metadata.json
+	$(eval PUBLISHED_VERSION 	:= $(shell jq -r '.info.version' metadata.json))
+	$(eval TARBALLS				:= $(shell find ./dist -type f -name 'pyrtkgps-*.tar.gz'))
+	$(eval TARBALLS				:= ${TARBALLS:.tar.gz=})
+	$(eval BUILD_VERSION		:= ${TARBALLS:./dist/pyrtkgps-%=%})
+	$(eval IS_VALID_VERSION		:= $(shell python -c 'from packaging.version import Version; print(Version("${BUILD_VERSION}") > Version("${PUBLISHED_VERSION}"));'))
+	@echo "version (old): ${PUBLISHED_VERSION}"
+	@echo "version (new): ${BUILD_VERSION}"
+	@echo "upgradable: ${IS_VALID_VERSION}"
+	if [[ "${IS_VALID_VERSION}" != "True" ]]; then exit 1; fi
+
 stage:
 	@if [[ "${GIT_BRANCH}" != "stage" ]]; then echo "Abort: invalid git branch"; exit 1; fi
 	twine upload  --verbose --repository testpypi dist/* -u "__token__" -p "${TEST_PYPI_API_SECRET}"
