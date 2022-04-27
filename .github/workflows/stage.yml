@@ -38,10 +38,13 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v3
-      - name: Set up python
+      - name: Set up python & use dependencies cache
         uses: actions/setup-python@v3
         with:
           python-version: '3'
+          cache: 'pip'
+      - name: Install requirements 
+        run: make requirements
       - name: Download build artifacts
         uses: actions/download-artifact@v3
       - name: Check version
