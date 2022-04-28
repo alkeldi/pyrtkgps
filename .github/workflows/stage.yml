@@ -1,4 +1,4 @@
-name: Staging
+name: Stage
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Staging (Build using Python ${{ matrix.python-version }})
+    name: Stage (Build using Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,7 +33,7 @@ jobs:
           path: ./dist
 
   version:
-    name: Staging (Verify Version)
+    name: Stage (Verify Version)
     runs-on: ubuntu-latest
     needs: [build]
     steps:
@@ -52,8 +52,8 @@ jobs:
 
   stage:
     if: github.event_name == 'push'
-    name: Staging (Deploy to TestPyPI)
-    environment: staging
+    name: Stage (Deploy to TestPyPI)
+    environment: stage
     runs-on: ubuntu-latest
     needs: [version]
     steps:
