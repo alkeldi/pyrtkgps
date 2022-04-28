@@ -33,7 +33,7 @@ jobs:
           path: ./dist
 
   version:
-    name: Staging (Verify Version)
+    name: Release (Verify Version)
     runs-on: ubuntu-latest
     needs: [build]
     steps:
